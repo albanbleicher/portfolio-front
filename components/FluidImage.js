@@ -7,7 +7,6 @@ export default function FluidImage({ src, classElement }) {
   const [plane, setPlane] = useState(null);
   const mousePosition = useRef(new Vec2());
   const mouseLastPosition = useRef(new Vec2());
-
   const deltas = useRef({
     max: 0,
     applied: 0,
@@ -35,6 +34,12 @@ export default function FluidImage({ src, classElement }) {
     isHover: {
       // our mouse position
       name: "uIsHover",
+      type: "1f", // again an array of floats
+      value: 0,
+    },
+    gray: {
+      // our mouse position
+      name: "uGray",
       type: "1f", // again an array of floats
       value: 0,
     },
@@ -99,11 +104,26 @@ export default function FluidImage({ src, classElement }) {
         }
       };
       const element = document.querySelector("." + classElement);
+      const onMouseEnter = () => {
+        if (plane) {
+          plane.uniforms.isHover.value = 1;
+        }
+      };
+      const onMouseLeave = () => {
+        if (plane) {
+          plane.uniforms.isHover.value = 0;
+        }
+      };
       element.addEventListener("mousemove", onMouseMove);
+      element.addEventListener("mouseenter", onMouseEnter);
+      element.addEventListener("mouseleave", onMouseLeave);
       element.addEventListener("touchmove", onMouseMove, { passive: true });
 
       return () => {
         element.removeEventListener("mousemove", onMouseMove);
+        element.removeEventListener("mouseenter", onMouseEnter);
+        element.removeEventListener("mouseleave", onMouseLeave);
+
         element.removeEventListener("touchmove", onMouseMove, {
           passive: true,
         });
@@ -119,12 +139,9 @@ export default function FluidImage({ src, classElement }) {
 
   const onReady = (plane) => {
     plane.setPerspective(35);
-
     setResolution(plane);
-
     setPlane(plane);
   };
-
   const onRender = (plane) => {
     // increment our time uniform
     plane.uniforms.time.value++;
@@ -133,7 +150,12 @@ export default function FluidImage({ src, classElement }) {
     deltas.current.applied +=
       (deltas.current.max - deltas.current.applied) * 0.02;
     deltas.current.max += (0 - deltas.current.max) * 0.01;
-
+    // console.log(hover);
+    if (plane.uniforms.isHover.value) {
+      if (plane.uniforms.gray.value < 1) plane.uniforms.gray.value += 0.02;
+    } else {
+      if (plane.uniforms.gray.value > 0) plane.uniforms.gray.value -= 0.02;
+    }
     // send the new mouse move strength value
     plane.uniforms.strength.value = deltas.current.applied;
   };

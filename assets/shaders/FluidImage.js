@@ -65,6 +65,7 @@ varying float fromMouse;
   varying vec2 vTextureCoord;
   uniform sampler2D simplePlaneTexture;
   uniform float uIsHover;
+  uniform float uGray;
 
 
 
@@ -76,9 +77,9 @@ varying float fromMouse;
     vec4 tex = texture2D(simplePlaneTexture, vTextureCoord);
 
 vec4 wavedTex = texture2D(simplePlaneTexture, vTextureCoord + vWave );
-float gray = dot(wavedTex.rgb, vec3(0.299, 0.587, 0.114));
+vec4 gray = vec4(dot(wavedTex.rgb, vec3(0.299, 0.587, 0.114)),dot(wavedTex.rgb, vec3(0.299, 0.587, 0.114)),dot(wavedTex.rgb, vec3(0.299, 0.587, 0.114)),1);
 
-  gl_FragColor = vec4(wavedTex.rgb, 1.0);
+  gl_FragColor = mix(gray,wavedTex,uGray);
 
   }
 `;
