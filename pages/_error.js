@@ -22,6 +22,6 @@ export default function Error(props) {
 export async function getStaticProps() {
   const global = await fetchAPI("/settings");
   return {
-    props: { global, title: "404" },
+    props: { global, title: "Page Not Found" },
   };
 }
