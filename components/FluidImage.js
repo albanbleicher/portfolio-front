@@ -156,7 +156,7 @@ export default function FluidImage({ src, classElement }) {
       onRender={onRender}
       onAfterResize={onAfterResize}
     >
-      <img src={src} data-sampler="simplePlaneTexture" alt="" />
+      <img src={src} data-sampler="simplePlaneTexture" alt="That's Me !" />
     </Plane>
   );
 }

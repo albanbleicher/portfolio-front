@@ -4,7 +4,6 @@ import rehypeRaw from "rehype-raw";
 import FluidImage from "../components/FluidImage";
 import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
-import { Curtains } from "react-curtains";
 
 export default function Home(props) {
   return (
@@ -21,12 +20,10 @@ export default function Home(props) {
               children={props.global.website_baseline}
             />
           </div>
-          <Curtains pixelRatio={Math.min(1.5, 2)}>
-            <FluidImage
-              classElement={"avatar"}
-              src={props.global.avatar.formats.medium.url}
-            />
-          </Curtains>
+          <FluidImage
+            classElement={"avatar"}
+            src={props.global.avatar.formats.medium.url}
+          />
         </div>
       </div>
     </Fragment>

@@ -1,11 +1,12 @@
 import Navbar from "../components/navbar";
-import SEO from "../components/seo";
 import React, { createContext } from "react";
 import "../styles/globals.scss";
 import { motion } from "framer-motion";
 export const GlobalContext = createContext({});
 import { useRouter } from "next/dist/client/router";
 import { useEffect } from "react";
+import { Curtains } from "react-curtains";
+
 function App({ Component, router, pageProps }) {
   const { pathname } = useRouter();
   useEffect(() => {
@@ -25,26 +26,28 @@ function App({ Component, router, pageProps }) {
   return (
     <GlobalContext.Provider value={pageProps}>
       <React.StrictMode>
-        <Navbar />
-        <motion.div
-          key={router.route}
-          initial="initial"
-          animate="final"
-          variants={{
-            initial: {
-              opacity: 0,
-            },
-            final: {
-              opacity: 1,
-            },
-          }}
-          transition={{
-            duration: 1.5,
-          }}
-          className="content_layout"
-        >
-          <Component {...pageProps} />
-        </motion.div>
+        <Curtains>
+          <Navbar />
+          <motion.div
+            key={router.route}
+            initial="initial"
+            animate="final"
+            variants={{
+              initial: {
+                opacity: 0,
+              },
+              final: {
+                opacity: 1,
+              },
+            }}
+            transition={{
+              duration: 1.5,
+            }}
+            className="content_layout"
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </Curtains>
       </React.StrictMode>
     </GlobalContext.Provider>
   );
