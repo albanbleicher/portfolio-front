@@ -128,6 +128,8 @@ export default function FluidImage({ src, classElement }) {
   };
 
   const onRender = (plane) => {
+    const planeBBox = plane.getBoundingRect();
+    plane.uniforms.resolution.value = [planeBBox.width, planeBBox.height];
     // increment our time uniform
     plane.uniforms.time.value++;
 
@@ -152,6 +154,7 @@ export default function FluidImage({ src, classElement }) {
       heightSegments={40}
       uniforms={uniforms}
       // plane events
+      onBe
       onReady={onReady}
       onRender={onRender}
       onAfterResize={onAfterResize}
