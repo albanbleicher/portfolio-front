@@ -137,9 +137,12 @@ export async function getStaticProps(context) {
 }
 export async function getStaticPaths() {
   const work = await fetchAPI("/projects?_sort=date:DESC");
-  const paths = work.map((post) => ({
-    params: { slug: post.slug },
-  }));
+  let paths = [];
+  if (work.length) {
+    paths = work.map((post) => ({
+      params: { slug: post.slug },
+    }));
+  }
   return {
     paths,
     fallback: false, // See the "fallback" section below
