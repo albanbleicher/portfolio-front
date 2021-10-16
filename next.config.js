@@ -5,6 +5,8 @@ module.exports = withPlaiceholder(
   withTM({
     images: {
       domains: ["res.cloudinary.com"],
+      loader: "cloudinary",
+      path: "https://res.cloudinary.com/albaaaaan/",
     },
     webpack: (config, { isServer }) => {
       // Fixes npm packages that depend on `fs` module

@@ -40,12 +40,12 @@ export default function WorkCard({ title, medias, type, slug, index }) {
         </motion.h2>
         <motion.img
           animate={{
-            x: 100 * mouse.x,
+            x: 200 * mouse.x,
             y: 25 * mouse.y,
             opacity: isHover ? 1 : 0,
           }}
           className="thumb"
-          src={medias[0].url}
+          src={medias[0].formats.medium.url}
         />
       </motion.div>
     </Link>

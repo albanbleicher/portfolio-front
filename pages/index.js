@@ -1,17 +1,12 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import FluidImage from "../components/FluidImage";
-import gsap from "gsap";
 import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import { Curtains } from "react-curtains";
 
 export default function Home(props) {
-  console.log(props);
-  useEffect(() => {
-    gsap.from(".curtains-canvas", { opacity: 0, duration: 1, delay: 1.5 });
-  }, []);
   return (
     <Fragment>
       <SEO {...props} />

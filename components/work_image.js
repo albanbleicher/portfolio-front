@@ -3,12 +3,18 @@ import { useState } from "react";
 import Image from "next/image";
 export default function WorkImage({ data, big }) {
   const [isZoomed, setIsZoomed] = useState(false);
-  const [blur, setBlur] = useState();
-  const getBlur = async () => {};
+  const [loaded, setLoaded] = useState(false);
   return (
     <AnimateSharedLayout type="crossfade">
       <motion.div className="work_image">
-        <motion.img onClick={() => setIsZoomed(true)} src={data}></motion.img>
+        <Image
+          layout="responsive"
+          width={256}
+          height={160}
+          objectFit="cover"
+          onClick={() => setIsZoomed(true)}
+          src={data}
+        />
       </motion.div>
       <AnimatePresence>
         {isZoomed && (
@@ -30,12 +36,31 @@ export default function WorkImage({ data, big }) {
             className="zoomed_view"
             onClick={() => setIsZoomed(false)}
           >
+            <span>Click anywhere to close</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="162"
+              height="162"
+              viewBox="0 0 162 162"
+            >
+              <g
+                id="Ellipse_3"
+                data-name="Ellipse 3"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="1"
+                strokeDasharray="133 34"
+              >
+                <circle cx="81" cy="81" r="81" stroke="none" />
+                <circle cx="81" cy="81" r="80.5" fill="none" />
+              </g>
+            </svg>
+
             <Image
               src={big}
-              width={160 * 6}
-              height={90 * 6}
+              width={2560 / 3}
+              height={1600 / 3}
               objectFit="cover"
-              placeholder="blur"
             />
           </motion.div>
         )}

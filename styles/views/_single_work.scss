@@ -14,6 +14,39 @@
         flex-direction: column;
         z-index: 9999;
 
+        @media only screen and (max-width:800px) {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        span {
+            @include content;
+            line-height: unset;
+            color: transparentize(color('alt'), 0.7);
+            position: fixed;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        svg {
+            position: absolute;
+            width: 5vw;
+            height: 5vw;
+            animation: rotate infinite 1.5s;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         img {
             height: 80%;
 

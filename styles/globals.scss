@@ -97,8 +97,22 @@ body {
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  opacity: 0;
 
   @media only screen and (max-width:600px) {
     opacity: 0 !important;
+  }
+
+  animation:fadeIn 1.5s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

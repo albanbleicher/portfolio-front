@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { Plane, useCurtains } from "react-curtains";
 import { vertexShader, fragmentShader } from "../assets/shaders/FluidImage";
 import { Vec2 } from "curtainsjs";
-import gsap from "gsap";
 
 export default function FluidImage({ src, classElement }) {
   const [plane, setPlane] = useState(null);

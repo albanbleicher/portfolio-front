@@ -6,8 +6,10 @@ import React, { useEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
+import { getPlaiceholder } from "plaiceholder";
 
 export default function SingleWork(props) {
+  console.log(props);
   return (
     <React.Fragment>
       <SEO {...props} />
@@ -63,17 +65,15 @@ export default function SingleWork(props) {
           variants={{
             initial: {
               opacity: 0,
-              y: 50,
             },
             final: {
               opacity: 1,
-              y: 0,
             },
           }}
           transition={{
             duration: 1.5,
             ease: "easeOut",
-            delay: 1.5,
+            delay: 2,
           }}
           className="single-work-content"
         >
@@ -89,7 +89,10 @@ export default function SingleWork(props) {
             </p>
           )}
           <div className="main-and-args">
-            <WorkImage data={props.medias[1].url} />
+            <WorkImage
+              data={props.medias[1].formats.large.provider_metadata.public_id}
+              big={props.medias[1].formats.large.provider_metadata.public_id}
+            />
             {props.portfolio_element && (
               <div className="args">
                 {props.portfolio_element.map((item) => (
@@ -113,8 +116,8 @@ export default function SingleWork(props) {
                 (item, i) =>
                   i > 1 && (
                     <WorkImage
-                      data={item.formats.thumbnail.url}
-                      big={item.url}
+                      data={item.formats.thumbnail.provider_metadata.public_id}
+                      big={item.formats.large.provider_metadata.public_id}
                       key={item.formats.thumbnail.url}
                     />
                   )
@@ -129,8 +132,17 @@ export default function SingleWork(props) {
 }
 export async function getStaticProps(context) {
   const work = await fetchAPI("/projects/?slug=" + context.params.slug);
+  let blurred = [];
+  if (work.length) {
+    work[0].medias.forEach(async (media, i) => {
+      const { base64, img } = await getPlaiceholder(
+        media.formats.thumbnail.url
+      );
+      blurred[i] = { base64, img };
+    });
+  }
   const global = await fetchAPI("/settings");
-  if (work.length) return { props: { ...work[0], global } };
+  if (work.length) return { props: { ...work[0], global, blurred } };
   else return { notFound: true };
 }
 export async function getStaticPaths() {
