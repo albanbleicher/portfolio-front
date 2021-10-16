@@ -8,6 +8,7 @@ export default function Navbar() {
     <nav>
       <Link shallow={true} href="/">
         <motion.h2
+          onClick={() => setIsOpen(false)}
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{
