@@ -8,7 +8,7 @@ export default function Resume(props) {
   return (
     <React.Fragment>
       <SEO {...props} />
-      <motion.div className="resume-container">
+      <div className="resume-container">
         <div className="resume-left" data-scroll-section>
           <h1 data-scroll data-scroll-position="top" data-scroll-speed="1">
             {resume.title}
@@ -57,7 +57,7 @@ export default function Resume(props) {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
       <div className="say-bonjour">
         <motion.h2>Say bonjour !</motion.h2>
         <a target="_blank" href={"mailto:" + props.global.mail}>

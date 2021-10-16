@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Fragment } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";

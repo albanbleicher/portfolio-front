@@ -26,7 +26,9 @@ function App({ Component, router, pageProps }) {
   return (
     <GlobalContext.Provider value={pageProps}>
       <React.StrictMode>
-        <Curtains>
+        <Curtains
+          className={router.route === "/" ? "curtains-canvas home" : null}
+        >
           <Navbar />
           <motion.div
             key={router.route}

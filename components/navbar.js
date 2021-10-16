@@ -5,9 +5,17 @@ import { useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="nav">
+    <nav>
       <Link shallow={true} href="/">
-        <h2 className="react-on-hover">ALBAN</h2>
+        <motion.h2
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{
+            delay: 1,
+          }}
+        >
+          ALBAN
+        </motion.h2>
       </Link>
 
       <svg
@@ -16,7 +24,7 @@ export default function Navbar() {
         height="14.093"
         viewBox="0 0 19.64 14.093"
       >
-        <g transform="translate(-315.8 -50.5)">
+        <g transform="translate(-315.8 -51)">
           <line
             id="Line_16"
             data-name="Line 16"
@@ -62,26 +70,42 @@ export default function Navbar() {
         transition="easeInOut"
         onClick={() => setIsOpen(false)}
       >
-        <li>
+        <motion.li
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1 }}
+        >
           <Link shallow={true} href="/work">
             <a>Work</a>
           </Link>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1 }}
+        >
           <Link shallow={true} href="/resume">
             <a>Resume</a>
           </Link>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1 }}
+        >
           <Link href="https://github.com/albanbleicher">
             <a>Github</a>
           </Link>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1 }}
+        >
           <Link href="https://www.linkedin.com/in/albanbleicher/">
             <a>LinkedIn</a>
           </Link>
-        </li>
+        </motion.li>
       </ul>
     </nav>
   );

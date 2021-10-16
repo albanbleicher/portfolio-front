@@ -1,16 +1,17 @@
 @font-face {
     font-family: 'Mak';
     src: local('Mak'),
-    url('../../assets/fonts/Mak-Light.woff2') format('woff2'),
+        url('../../assets/fonts/Mak-Light.woff2') format('woff2'),
         url('../../assets/fonts//Mak-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-Regular.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-Regular.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
@@ -20,7 +21,7 @@
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-SemiboldItalic.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-SemiboldItalic.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-SemiboldItalic.woff') format('woff');
     font-weight: 600;
     font-style: italic;
@@ -30,7 +31,7 @@
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-LightItalic.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-LightItalic.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-LightItalic.woff') format('woff');
     font-weight: 200;
     font-style: italic;
@@ -40,7 +41,7 @@
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-Light.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-Light.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-Light.woff') format('woff');
     font-weight: 200;
     font-style: normal;
@@ -50,7 +51,7 @@
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-RegularItalic.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-RegularItalic.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-RegularItalic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
@@ -60,7 +61,7 @@
 @font-face {
     font-family: 'SF Pro Text';
     src:
-    local('SF Pro Text'), url('../../assets/fonts/SFProText-Semibold.woff2') format('woff2'),
+        local('SF Pro Text'), url('../../assets/fonts/SFProText-Semibold.woff2') format('woff2'),
         url('../../assets/fonts/SFProText-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
