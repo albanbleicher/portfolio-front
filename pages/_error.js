@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import Link from "next/link";
+import { fetchAPI } from "../lib/api";
 export default function Error(props) {
   return (
     <Fragment>
