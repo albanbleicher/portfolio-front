@@ -7,8 +7,9 @@ const Seo = (props) => {
   const fullSeo = {
     // Add title suffix
     metaTitle: `${siteName} | ${baseline}`,
+    metaDescription: props.global.seo_description,
     // Get full image URL
-    shareImage: "",
+    shareImage: props.global.seo_screenshot.url,
   };
 
   return (
@@ -30,12 +31,11 @@ const Seo = (props) => {
       {fullSeo.shareImage && (
         <>
           <meta property="og:image" content={fullSeo.shareImage} />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:image" content={fullSeo.shareImage} />
           <meta name="image" content={fullSeo.shareImage} />
         </>
       )}
-      {fullSeo.article && <meta property="og:type" content="article" />}
-      <meta name="twitter:card" content="summary_large_image" />
       <link
         rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬜</text></svg>"
