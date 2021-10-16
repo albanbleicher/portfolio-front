@@ -120,19 +120,15 @@ export default function FluidImage({ src, classElement }) {
   const onReady = (plane) => {
     plane.setPerspective(35);
 
-    deltas.current.max = 2;
-
     setResolution(plane);
 
     setPlane(plane);
   };
 
   const onRender = (plane) => {
-    const planeBBox = plane.getBoundingRect();
-    plane.uniforms.resolution.value = [planeBBox.width, planeBBox.height];
     // increment our time uniform
     plane.uniforms.time.value++;
-
+    setResolution(plane);
     // decrease both deltas by damping : if the user doesn't move the mouse, effect will fade away
     deltas.current.applied +=
       (deltas.current.max - deltas.current.applied) * 0.02;
@@ -154,7 +150,6 @@ export default function FluidImage({ src, classElement }) {
       heightSegments={40}
       uniforms={uniforms}
       // plane events
-      onBe
       onReady={onReady}
       onRender={onRender}
       onAfterResize={onAfterResize}
