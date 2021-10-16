@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
-import { getPlaiceholder } from "plaiceholder";
 
 export default function SingleWork(props) {
   console.log(props);
@@ -132,15 +131,6 @@ export default function SingleWork(props) {
 }
 export async function getStaticProps(context) {
   const work = await fetchAPI("/projects/?slug=" + context.params.slug);
-  let blurred = [];
-  if (work.length) {
-    work[0].medias.forEach(async (media, i) => {
-      const { base64, img } = await getPlaiceholder(
-        media.formats.thumbnail.url
-      );
-      blurred[i] = { base64, img };
-    });
-  }
   const global = await fetchAPI("/settings");
   if (work.length) return { props: { ...work[0], global, blurred } };
   else return { notFound: true };
