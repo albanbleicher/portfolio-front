@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import Link from "next/link";
-export default function NotFoundPage() {
+export default function Error(props) {
   return (
     <Fragment>
-      <SEO title="404" />
+      <SEO {...props} />
       <div className="error">
         <h1>Ooopsi, sorry</h1>
         <p>
@@ -18,4 +18,10 @@ export default function NotFoundPage() {
       <Footer />
     </Fragment>
   );
+}
+export async function getStaticProps() {
+  const global = await fetchAPI("/settings");
+  return {
+    props: { global, title: "404" },
+  };
 }
