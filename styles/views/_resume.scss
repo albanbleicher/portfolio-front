@@ -1,0 +1,150 @@
+.resume-container {
+    padding: 80px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 80px 20px;
+    }
+
+    .resume-left {
+        h1 {
+            color: color('alt');
+            font-family: font('alt');
+            font-size: 3rem;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        span {
+            @include content;
+            text-transform: capitalize;
+        }
+
+        @media only screen and (max-width: 800px) {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+    }
+
+    .resume-right {
+        text-align: right;
+        width: 50%;
+
+        @media only screen and (max-width: 800px) {
+            text-align: left;
+            width: 100%;
+        }
+
+        .resume-section {
+            &:not(:last-child) {
+                margin-bottom: 80px;
+            }
+
+            h2 {
+                margin: 0;
+                font-family: font('alt');
+                color: color('alt');
+                font-size: 2rem;
+                font-weight: lighter;
+                margin-bottom: 40px;
+                opacity: 0.7;
+            }
+
+            .resume-block {
+                position: relative;
+                margin-right: 50px;
+
+                &::after {
+                    width: 10px;
+                    height: 10px;
+                    position: absolute;
+                    right: -50px;
+                    top: 50%;
+                    content: '';
+                    border-radius: 100%;
+                    background-color: color('text');
+                    transform: translate(-50%, -50%);
+
+                    @media only screen and (max-width: 800px) {
+                        right: auto;
+                        left: -20px;
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 30px;
+                }
+
+                h4 {
+                    font-weight: 200;
+                    line-height: 25px;
+                    font-size: 1.2rem;
+                    margin: 0;
+                }
+
+                p {
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                    margin: 0;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+
+                    a {
+                        @include link;
+                        font-weight: bold;
+
+                    }
+                }
+
+                span {
+                    font-weight: 200;
+                    font-style: italic;
+                    opacity: 0.62;
+                }
+            }
+        }
+    }
+}
+
+.say-bonjour {
+    padding: 100px;
+
+    @media only screen and (max-width: 800px) {
+        padding: 40px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+
+
+    h2 {
+        font-family: font('alt');
+        font-size: 3rem;
+        font-weight: 200;
+        margin-bottom: 15px;
+        color: color('alt')
+    }
+
+    a {
+        @include content;
+        line-height: 1.3rem;
+        @include link;
+
+        &::after {
+            height: 0.5px;
+        }
+    }
+}

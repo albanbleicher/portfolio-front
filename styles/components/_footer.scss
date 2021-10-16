@@ -1,0 +1,38 @@
+.footer {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: -10vw;
+        top: 0;
+        content: '';
+        height: 1px;
+        background-color: color('line');
+        @include animate-hz-line;
+
+        // @media only screen and (max-width:940px) {
+        //     opacity: 0 !important;
+        // }
+    }
+
+    @media only screen and (max-width:700px) {
+        padding: 40px;
+    }
+
+    box-sizing: border-box;
+    font-size: 0.8rem;
+
+    p {
+        @include content;
+    }
+
+    a {
+        @include link
+    }
+}

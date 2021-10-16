@@ -1,0 +1,38 @@
+.error {
+    @media only screen and (max-width:700px) {
+        width: 100vw;
+        left: -10vw;
+    }
+
+    height: 80%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(color('main'), 0.5), rgba(color('main'), 0.5)),
+    url('https://media.giphy.com/media/CVE14s1WjfjwY/giphy.gif');
+    background-size: cover;
+
+    p {
+        @include content;
+        text-align: center
+    }
+
+    a {
+        @include link;
+    }
+
+    h1 {
+        margin: 0;
+        font-family: font('alt');
+        font-size: 3rem;
+        font-weight: lighter;
+        color: color('alt');
+        text-align: center;
+    }
+
+
+}

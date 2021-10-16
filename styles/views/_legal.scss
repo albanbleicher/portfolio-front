@@ -1,0 +1,41 @@
+.legal {
+    @media only screen and (max-width:700px) {
+        width: 100vw;
+        left: -10vw;
+    }
+
+    padding: 80px;
+    box-sizing: border-box;
+    position: relative;
+    background-image: linear-gradient(rgba(color('main'), 0.5), rgba(color('main'), 0.5)),
+    url('https://media.giphy.com/media/l2JhzHBHrl96HYIHm/giphy.gif');
+    background-size: cover;
+    background-position: center center;
+
+    @media only screen and(max-width:500px) {
+        padding: 40px 40px 40px 40px;
+
+    }
+
+
+    h1 {
+        font-family: font('alt');
+        font-size: 3rem;
+        font-weight: lighter;
+        margin: 0;
+        color: color('alt')
+    }
+
+    span {
+        @include content;
+    }
+
+    .content {
+        margin-top: 50px;
+        @include content;
+
+        a {
+            @include link;
+        }
+    }
+}
