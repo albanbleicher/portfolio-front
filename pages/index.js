@@ -22,7 +22,10 @@ export default function Home(props) {
             />
           </div>
           <Curtains pixelRatio={Math.min(1.5, 2)}>
-            <FluidImage classElement={"avatar"} src={props.global.avatar.url} />
+            <FluidImage
+              classElement={"avatar"}
+              src={props.global.avatar.formats.medium.url}
+            />
           </Curtains>
         </div>
       </div>
