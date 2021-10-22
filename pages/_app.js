@@ -16,8 +16,10 @@ function App({ Component, router, pageProps }) {
       // behavior: 'smooth'
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "." && e.shiftKey) {
-        window.open("https://github.com/albanbleicher", "_blank").focus();
+      if (e.key === ".") {
+        window
+          .open("https://github.com/albanbleicher/portfolio-front", "_blank")
+          .focus();
       }
     });
   }, [pathname]);
