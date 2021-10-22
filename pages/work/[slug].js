@@ -8,7 +8,6 @@ import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
 
 export default function SingleWork(props) {
-  console.log(props);
   return (
     <React.Fragment>
       <SEO {...props} />

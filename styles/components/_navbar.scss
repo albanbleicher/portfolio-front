@@ -111,10 +111,10 @@ nav {
 
             a {
                 @include link;
-                opacity: 1;
+                color: color('text');
 
                 &:hover {
-                    opacity: 0.2;
+                    color: transparentize(color('text'), 0.5)
                 }
             }
         }

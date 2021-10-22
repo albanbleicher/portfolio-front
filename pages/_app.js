@@ -22,11 +22,11 @@ function App({ Component, router, pageProps }) {
     });
   }, [pathname]);
 
-  // console.log(router.events)
   return (
     <GlobalContext.Provider value={pageProps}>
       <React.StrictMode>
         <Curtains
+          production={true}
           className={router.route === "/" ? "curtains-canvas home" : null}
         >
           <Navbar />

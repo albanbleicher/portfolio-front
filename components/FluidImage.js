@@ -138,7 +138,7 @@ export default function FluidImage({ src, classElement }) {
   };
 
   const onReady = (plane) => {
-    plane.setPerspective(35);
+    // plane.setPerspective(35);
     setResolution(plane);
     setPlane(plane);
   };
@@ -150,7 +150,6 @@ export default function FluidImage({ src, classElement }) {
     deltas.current.applied +=
       (deltas.current.max - deltas.current.applied) * 0.02;
     deltas.current.max += (0 - deltas.current.max) * 0.01;
-    // console.log(hover);
     if (plane.uniforms.isHover.value) {
       if (plane.uniforms.gray.value < 1) plane.uniforms.gray.value += 0.02;
     } else {

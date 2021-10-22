@@ -6,7 +6,6 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
 export default function Legal(props) {
-  console.log(props);
   return (
     <React.Fragment>
       <SEO {...props} />

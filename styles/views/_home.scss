@@ -45,7 +45,8 @@
 
 
             box-sizing: border-box;
-            width: 50%;
+            width: 60%;
+
 
             h2 {
                 color: color('alt');
@@ -61,6 +62,7 @@
             p {
                 @include content;
                 width: 100%;
+                margin-bottom: 0;
 
                 a {
                     @include link;
