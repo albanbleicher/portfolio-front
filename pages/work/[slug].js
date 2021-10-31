@@ -27,8 +27,8 @@ export default function SingleWork(props) {
               },
             }}
             transition={{
-              duration: 1.5,
-              ease: "easeOut",
+              duration: 0.7,
+              ease: "easeInOut",
               delay: 0.5,
             }}
             className="title"
@@ -41,16 +41,14 @@ export default function SingleWork(props) {
             variants={{
               initial: {
                 opacity: 0,
-                y: 50,
               },
               final: {
                 opacity: 1,
-                y: 0,
               },
             }}
             transition={{
-              duration: 1.5,
-              ease: "easeOut",
+              duration: 0.7,
+              ease: "easeInOut",
               delay: 1,
             }}
           >
@@ -69,9 +67,9 @@ export default function SingleWork(props) {
             },
           }}
           transition={{
-            duration: 1.5,
+            duration: 0.7,
             ease: "easeOut",
-            delay: 2,
+            delay: 1.4,
           }}
           className="single-work-content"
         >
