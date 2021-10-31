@@ -6,7 +6,9 @@ const Seo = (props) => {
   const fullSeo = {
     // Add title suffix
     metaTitle: `${siteName} | ${baseline}`,
-    metaDescription: props.global.seo_description,
+    metaDescription: props.short_description
+      ? props.short_description
+      : props.global.seo_description,
     // Get full image URL
     shareImage: props.global.seo_screenshot.url,
   };
