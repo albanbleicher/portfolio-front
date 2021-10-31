@@ -19,7 +19,7 @@ export default function SingleWork(props) {
             variants={{
               initial: {
                 opacity: 0,
-                y: 50,
+                y: 20,
               },
               final: {
                 opacity: 1,
