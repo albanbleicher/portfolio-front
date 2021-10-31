@@ -131,7 +131,7 @@ export default function SingleWork(props) {
 export async function getStaticProps(context) {
   const work = await fetchAPI("/projects/?slug=" + context.params.slug);
   const global = await fetchAPI("/settings");
-  if (work.length) return { props: { ...work[0], global, blurred } };
+  if (work.length) return { props: { ...work[0], global } };
   else return { notFound: true };
 }
 export async function getStaticPaths() {

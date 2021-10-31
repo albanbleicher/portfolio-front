@@ -1,7 +1,11 @@
 .work {
     box-sizing: border-box;
     position: relative;
-    padding: 80px 80px 80px 80px;
+    padding: 80px 0px;
+
+    @media only screen and (max-width:700px) {
+        min-height: 80%;
+    }
 
     &.no-work {
         @media only screen and (max-width:700px) {
@@ -37,10 +41,11 @@
 
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     text-align: center;
+
 
     h1 {
         font-family: font('alt');

@@ -18,31 +18,36 @@ export default function WorkCard({ title, medias, type, slug, index }) {
   return (
     <Link href={"/work/" + slug} passHref={true}>
       <motion.div
-        initial="initial"
-        animate="final"
-        variants={{
-          initial: {
-            opacity: 0,
-          },
-          final: {
-            opacity: 1,
-          },
-        }}
-        transition={{ duration: 1, delay: 0.5 * index }}
         onMouseEnter={(e) => window.innerWidth > 900 && setIsHover(true)}
         onMouseLeave={(e) => window.innerWidth > 900 && setIsHover(false)}
         className="work-card"
         data-img={medias[0].url}
       >
-        <motion.h2 className="project-title">
+        <motion.h2
+          animate={{
+            opacity: isHover ? 0.2 : 0.5,
+          }}
+          transition={{
+            duration: 0.2,
+            ease: "easeInOut",
+          }}
+          className="project-title"
+        >
           <span className="name">{title}</span>
           <span className="type">({type})</span>
         </motion.h2>
         <motion.img
           animate={{
-            x: 200 * mouse.x,
-            y: 25 * mouse.y,
-            opacity: isHover ? 1 : 0,
+            filter: isHover ? "grayscale(0%)" : "grayscale(100%)",
+            opacity: isHover ? 1 : 0.2,
+            scale: isHover ? 1 : 0.8,
+            rotate: isHover ? -2 : 0,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          transition={{
+            duration: 0.4,
+            ease: "easeInOut",
           }}
           className="thumb"
           src={medias[0].formats.medium.url}
