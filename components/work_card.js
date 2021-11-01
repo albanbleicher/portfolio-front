@@ -25,11 +25,10 @@ export default function WorkCard({ title, medias, type, slug, index }) {
       >
         <motion.h2
           animate={{
-            height: isHover ? 0 : 200,
+            opacity: isHover ? 0.1 : 0.5,
           }}
           transition={{
-            duration: 0.8,
-            type: "spring",
+            duration: 0.1,
           }}
           className="project-title"
         >
