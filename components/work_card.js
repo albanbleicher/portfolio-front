@@ -25,11 +25,11 @@ export default function WorkCard({ title, medias, type, slug, index }) {
       >
         <motion.h2
           animate={{
-            opacity: isHover ? 0.2 : 0.5,
+            height: isHover ? 0 : 200,
           }}
           transition={{
-            duration: 0.2,
-            ease: "easeInOut",
+            duration: 0.8,
+            type: "spring",
           }}
           className="project-title"
         >
@@ -37,17 +37,19 @@ export default function WorkCard({ title, medias, type, slug, index }) {
           <span className="type">({type})</span>
         </motion.h2>
         <motion.img
+          initial={{
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
           animate={{
             filter: isHover ? "grayscale(0%)" : "grayscale(100%)",
             opacity: isHover ? 1 : 0.2,
             scale: isHover ? 1 : 0.8,
             rotate: isHover ? -2 : 0,
-            translateX: "-50%",
-            translateY: "-50%",
           }}
           transition={{
-            duration: 0.4,
-            ease: "easeInOut",
+            duration: 1,
+            type: "spring",
           }}
           className="thumb"
           src={medias[0].formats.medium.url}

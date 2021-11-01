@@ -27,6 +27,7 @@ export default function Navbar() {
           }}
           transition={{
             ease: "linear",
+            type: "tween",
           }}
         ></motion.span>
         <motion.span
@@ -35,6 +36,7 @@ export default function Navbar() {
           }}
           transition={{
             ease: "linear",
+            type: "tween",
           }}
         ></motion.span>
         <motion.span
@@ -44,6 +46,7 @@ export default function Navbar() {
           }}
           transition={{
             ease: "linear",
+            type: "tween",
           }}
         ></motion.span>
       </div>

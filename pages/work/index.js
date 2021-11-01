@@ -1,5 +1,5 @@
 import { fetchAPI } from "../../lib/api";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkCard from "../../components/work_card";

@@ -30,6 +30,7 @@ export default function SingleWork(props) {
               duration: 0.7,
               ease: "easeInOut",
               delay: 0.5,
+              type: "spring",
             }}
             className="title"
           >
@@ -50,6 +51,7 @@ export default function SingleWork(props) {
               duration: 0.7,
               ease: "easeInOut",
               delay: 1,
+              type: "spring",
             }}
           >
             {new Date(props.date).getFullYear()} — {props.type}
@@ -70,6 +72,7 @@ export default function SingleWork(props) {
             duration: 0.7,
             ease: "easeOut",
             delay: 1.4,
+            type: "spring",
           }}
           className="single-work-content"
         >
