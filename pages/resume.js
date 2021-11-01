@@ -26,8 +26,11 @@ export default function Resume(props) {
                   </a>
                 </p>
                 <span>
-                  {new Date(item.StartYear).getFullYear()} -{" "}
-                  {item.EndYear ? new Date(item.EndYear).getFullYear() : "now"}
+                  {item.EndYear
+                    ? new Date(item.StartYear).getFullYear() +
+                      " - " +
+                      new Date(item.EndYear).getFullYear()
+                    : "Since " + new Date(item.StartYear).getFullYear()}
                 </span>
               </div>
             ))}
