@@ -79,18 +79,18 @@ export default function Navbar() {
           initial={{ opacity: 0 }}
           transition={{ delay: 1 }}
         >
-          <Link href="https://github.com/albanbleicher">
+          <a target="_blank" href="https://github.com/albanbleicher">
             <a>Github</a>
-          </Link>
+          </a>
         </motion.li>
         <motion.li
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1 }}
         >
-          <Link href="https://www.linkedin.com/in/albanbleicher/">
+          <a target="_blank" href="https://www.linkedin.com/in/albanbleicher/">
             <a>LinkedIn</a>
-          </Link>
+          </a>
         </motion.li>
       </ul>
     </nav>
