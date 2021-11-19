@@ -30,6 +30,14 @@
             flex-direction: column;
         }
 
+        h2 {
+            .char {
+                margin: 0;
+                padding: 0;
+                display: inline;
+            }
+        }
+
         .text {
             padding: 80px;
 
@@ -66,7 +74,19 @@
 
                 a {
                     @include link;
+
+                    animation: fade 0.5s;
                 }
+            }
+        }
+
+        @keyframes fade {
+            0% {
+                color: color('text')
+            }
+
+            100% {
+                color: transparentize(color('text'), 0.5);
             }
         }
 

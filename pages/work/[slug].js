@@ -1,81 +1,80 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { fetchAPI } from "../../lib/api";
-import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
-
+import gsap from "gsap";
+import SplitType from "split-type";
 export default function SingleWork(props) {
+  useEffect(() => {
+    gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
+    const title = new SplitType(".title", { types: "lines" });
+    const secondSplit = new SplitType(title.lines, {
+      types: "lines",
+      splitClass: "inner-title",
+    });
+    gsap
+      .from(".inner-title", {
+        y: 100,
+        stagger: 0.2,
+        delay: 0.5,
+        ease: "easeInOut",
+      })
+      .then(() => {
+        secondSplit.revert();
+        title.revert();
+      });
+
+    const span = new SplitType(".single-work-header span", {
+      types: "lines",
+    });
+    const secondSplitSpan = new SplitType(span.lines, {
+      types: "lines",
+      splitClass: "inner-span",
+    });
+    gsap
+      .from(".inner-span", {
+        y: 100,
+        stagger: 0.02,
+        delay: 1,
+        ease: "easeInOut",
+      })
+      .then(() => {
+        secondSplitSpan.revert();
+        span.revert();
+      });
+    const text = new SplitType(".long-description", {
+      types: "lines",
+    });
+    const secondSplitText = new SplitType(text.lines, {
+      types: "lines",
+      splitClass: "inner-text",
+    });
+    gsap
+      .from(".inner-text", {
+        y: 100,
+        stagger: 0.2,
+        delay: 2,
+        ease: "easeInOut",
+      })
+      .then(() => {
+        secondSplitText.revert();
+        text.revert();
+      });
+  }, []);
   return (
     <React.Fragment>
       <SEO {...props} />
       <div className="single-work">
         <div className="single-work-header">
-          <motion.h2
-            initial="initial"
-            animate="final"
-            variants={{
-              initial: {
-                opacity: 0,
-                y: 20,
-              },
-              final: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            transition={{
-              duration: 0.7,
-              ease: "easeInOut",
-              delay: 0.5,
-              type: "spring",
-            }}
-            className="title"
-          >
-            {props.title}
-          </motion.h2>
-          <motion.span
-            initial="initial"
-            animate="final"
-            variants={{
-              initial: {
-                opacity: 0,
-              },
-              final: {
-                opacity: 1,
-              },
-            }}
-            transition={{
-              duration: 0.7,
-              ease: "easeInOut",
-              delay: 1,
-              type: "spring",
-            }}
-          >
+          <h2 className="title">{props.title}</h2>
+          <span>
             {new Date(props.date).getFullYear()} — {props.type}
-          </motion.span>
+          </span>
         </div>
-        <motion.div
-          initial="initial"
-          animate="final"
-          variants={{
-            initial: {
-              opacity: 0,
-            },
-            final: {
-              opacity: 1,
-            },
-          }}
-          transition={{
-            duration: 0.7,
-            ease: "easeOut",
-            delay: 1.4,
-            type: "spring",
-          }}
-          className="single-work-content"
-        >
+        <div className="single-work-content">
           <ReactMarkdown
             linkTarget="_target"
             className="long-description"
@@ -123,19 +122,19 @@ export default function SingleWork(props) {
               )}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
       <Footer />
     </React.Fragment>
   );
 }
-export async function getStaticProps(context) {
+export const getStaticProps = async (context) => {
   const work = await fetchAPI("/projects/?slug=" + context.params.slug);
   const global = await fetchAPI("/settings");
   if (work.length) return { props: { ...work[0], global } };
   else return { notFound: true };
-}
-export async function getStaticPaths() {
+};
+export const getStaticPaths = async () => {
   const work = await fetchAPI("/projects?_sort=date:DESC");
   let paths = [];
   if (work.length) {
@@ -147,4 +146,4 @@ export async function getStaticPaths() {
     paths,
     fallback: false, // See the "fallback" section below
   };
-}
+};

@@ -4,7 +4,6 @@ import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-
 export default function Legal(props) {
   return (
     <React.Fragment>

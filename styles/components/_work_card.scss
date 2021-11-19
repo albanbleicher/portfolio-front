@@ -1,68 +1,64 @@
 .work-card {
+    width: 100%;
+    padding: 30px 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid color('line');
+    }
+
     cursor: pointer;
-    transition: padding 0.3s, opacity 0.5s;
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 200px;
-    padding: 0 40px;
-    box-sizing: border-box;
 
     &:hover {
-        // cursor: none;
-    }
+        h2 {
+            span {
+                &:first-child {
+                    top: -100%;
+                    opacity: 0.5
+                }
 
-    .thumb {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        z-index: -1;
-        top: 50%;
-        object-fit: cover;
-        object-position: center;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-
-    @media only screen and (max-width:700px) {
-        width: 90vw;
-    }
-
-    &:hover {
-        // opacity: 1;
-    }
+                &:last-child {
+                    top: 0%;
+                    opacity: 1;
+                }
+            }
 
 
-    h2 {
-        display: flex;
-        align-items: center;
-        position: relative;
-        align-content: center;
-        transition: opacity 0.5s;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        pointer-events: none;
-        box-sizing: border-box;
-        opacity: 0.5;
-        text-align: center;
-        will-change: transform;
-
-        .name {
-            font-family: font('alt');
-            font-size: 3rem;
-            align-self: center;
-            pointer-events: none;
         }
 
         .type {
-            @include content;
-            font-size: 0.6rem;
-            align-self: center;
-            pointer-events: none
+            opacity: 1
         }
     }
 
-    @include content;
+    h2 {
+        font-family: font('alt');
+        font-weight: normal;
+        position: relative;
+        margin: 0;
+        height: 2.2rem;
+        width: 50%;
+        overflow: hidden;
+
+        span {
+            position: absolute;
+            top: 0;
+            width: max-content;
+            transition: top 0.5s, opacity 0.5s;
+
+            &:last-child {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+    }
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .type {
+        font-size: 0.6rem;
+        opacity: 0.5;
+        transition: opacity 0.5s;
+    }
 }

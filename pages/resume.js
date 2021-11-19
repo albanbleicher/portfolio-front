@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
@@ -62,7 +61,7 @@ export default function Resume(props) {
         </div>
       </div>
       <div className="say-bonjour">
-        <motion.h2>Say bonjour !</motion.h2>
+        <h2>Say bonjour !</h2>
         <a target="_blank" href={"mailto:" + props.global.mail}>
           {props.global.mail}
         </a>

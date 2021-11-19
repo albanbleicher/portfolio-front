@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import Link from "next/link";

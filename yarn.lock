@@ -2084,6 +2084,11 @@ space-separated-tokens@^1.0.0, space-separated-tokens@^1.1.0:
   resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-1.1.5.tgz#85f32c3d10d9682007e917414ddc5c26d1aa6899"
   integrity sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==
 
+split-type@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/split-type/-/split-type-0.2.5.tgz#dae919b64016a65a8ff4ce2cde0d98dc82b91d16"
+  integrity sha512-11o9ICDfvcG2cctbrBVfa2VOIa6+umUa32/4NkQ1CXQTZevucChhPpX7N6OzlVyHvuFOMMb04ohnOBaTJem+Ig==
+
 stacktrace-parser@0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/stacktrace-parser/-/stacktrace-parser-0.1.10.tgz#29fb0cae4e0d0b85155879402857a1639eb6051a"

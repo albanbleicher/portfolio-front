@@ -1,11 +1,26 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import FluidImage from "../components/FluidImage";
 import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
+import gsap from "gsap";
+import SplitType from "split-type";
 
 export default function Home(props) {
+  useEffect(() => {
+    const title_splitted = new SplitType(".home-content h2");
+    gsap.from(".text p", { opacity: 0, duration: 1.5, delay: 1.5 });
+
+    gsap.from(title_splitted.chars, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.06,
+      delay: 1,
+      duration: 1.5,
+      ease: "back.out(1.7)",
+    });
+  });
   return (
     <Fragment>
       <SEO {...props} />
