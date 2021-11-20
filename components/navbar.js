@@ -14,46 +14,26 @@ export default function Navbar() {
         <span></span>
       </div>
 
-      <ul
-        className={isOpen ? "open" : null}
-        transition="easeInOut"
-        onClick={() => setIsOpen(false)}
-      >
-        <li
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 1 }}
-        >
+      <ul className={isOpen ? "open" : null} onClick={() => setIsOpen(false)}>
+        <li>
           <Link shallow={true} href="/work">
             <a>Work</a>
           </Link>
         </li>
-        <li
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 1 }}
-        >
+        <li>
           <Link shallow={true} href="/resume">
             <a>Resume</a>
           </Link>
         </li>
-        <li
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <a target="_blank" href="https://github.com/albanbleicher">
-            Github
-          </a>
+        <li>
+          <Link shallow={true} href="/experiments">
+            <a>Experiments</a>
+          </Link>
         </li>
-        <li
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <a target="_blank" href="https://www.linkedin.com/in/albanbleicher/">
-            LinkedIn
-          </a>
+        <li>
+          <Link shallow={true} href="/contact">
+            <a>Contact</a>
+          </Link>
         </li>
       </ul>
     </nav>

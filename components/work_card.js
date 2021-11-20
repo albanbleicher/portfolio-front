@@ -1,8 +1,17 @@
+import gsap from "gsap";
 import Link from "next/link";
-export default function WorkCard({ title, medias, type, slug }) {
+import { useLayoutEffect, useRef } from "react";
+export default function WorkCard({ title, medias, type, slug, index }) {
+  const card = useRef();
+  useLayoutEffect(() => {
+    gsap.from(card.current, {
+      opacity: 0,
+      delay: index ? index / 2 + 0.2 : 0.2,
+    });
+  });
   return (
     <Link href={"/work/" + slug} passHref={true}>
-      <div className="work-card">
+      <div ref={card} className="work-card">
         <h2 className="project-title">
           <span>{title}</span>
           <span>{title}</span>

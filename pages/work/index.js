@@ -1,13 +1,13 @@
 import { fetchAPI } from "../../lib/api";
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useLayoutEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkCard from "../../components/work_card";
 import gsap from "gsap";
 export default function Work(props) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
-  }, []);
+  });
   return (
     <React.Fragment>
       <SEO {...props} />

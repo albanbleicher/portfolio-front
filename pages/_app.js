@@ -3,14 +3,14 @@ import React, { createContext } from "react";
 import "../styles/globals.scss";
 export const GlobalContext = createContext({});
 import { useRouter } from "next/dist/client/router";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Curtains } from "react-curtains";
 import gsap from "gsap";
 
 function App({ Component, router, pageProps }) {
   const { pathname } = useRouter();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.from(".content_layout", { opacity: 0 });
 
     document.querySelector("#__next").scrollTo({

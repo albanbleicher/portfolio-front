@@ -1,14 +1,14 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { fetchAPI } from "../../lib/api";
-import React, { useEffect } from "react";
+import React, { use, useLayoutEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
 import gsap from "gsap";
 import SplitType from "split-type";
 export default function SingleWork(props) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
     const title = new SplitType(".title", { types: "lines" });
     const secondSplit = new SplitType(title.lines, {
@@ -18,9 +18,10 @@ export default function SingleWork(props) {
     gsap
       .from(".inner-title", {
         y: 100,
+        duration: 1,
         stagger: 0.2,
         delay: 0.5,
-        ease: "easeInOut",
+        ease: "circ",
       })
       .then(() => {
         secondSplit.revert();
@@ -38,31 +39,20 @@ export default function SingleWork(props) {
       .from(".inner-span", {
         y: 100,
         stagger: 0.02,
-        delay: 1,
+        duration: 1.5,
+        delay: 1.3,
         ease: "easeInOut",
       })
       .then(() => {
         secondSplitSpan.revert();
         span.revert();
       });
-    const text = new SplitType(".long-description", {
-      types: "lines",
+    gsap.from(".single-work-content", {
+      opacity: 0,
+      duration: 1.4,
+      delay: 2.8,
+      ease: "easeInOut",
     });
-    const secondSplitText = new SplitType(text.lines, {
-      types: "lines",
-      splitClass: "inner-text",
-    });
-    gsap
-      .from(".inner-text", {
-        y: 100,
-        stagger: 0.2,
-        delay: 2,
-        ease: "easeInOut",
-      })
-      .then(() => {
-        secondSplitText.revert();
-        text.revert();
-      });
   }, []);
   return (
     <React.Fragment>

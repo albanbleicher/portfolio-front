@@ -17,6 +17,15 @@
             color: color('alt');
             font-family: font('alt');
             font-size: 3rem;
+            line-height: 4.5rem;
+            overflow: hidden;
+
+            span {
+                height: 4.5rem;
+                display: block;
+                line-height: 4.5rem;
+            }
+
             font-weight: lighter;
             margin: 0;
         }
@@ -136,13 +145,33 @@
         font-size: 3rem;
         font-weight: 200;
         margin-bottom: 15px;
-        color: color('alt')
+        color: color('alt');
+        line-height: 3.5rem;
+        position: relative;
+        overflow: hidden;
+
+
+        span {
+            display: block;
+            height: 3.5rem;
+            opacity: 0;
+        }
+
+
+        margin-top: 0;
     }
 
     a {
         @include content;
         line-height: 1.3rem;
         @include link;
+        overflow: hidden;
+
+        span {
+            display: block;
+            opacity: 0;
+            height: 1.3rem;
+        }
 
         &::after {
             height: 0.5px;

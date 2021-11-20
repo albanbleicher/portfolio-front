@@ -30,6 +30,24 @@
 
     p {
         @include content;
+        height: 100px;
+        width: max-content;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        // background-color: green;
+
+        // span {
+        //     position: absolute;
+        //     width: 100px;
+        //     height: 2rem;
+        //     background-color: red;
+
+        //     &:last-child {
+        //         top: 100%;
+        //     }
+        // }
     }
 
     a {
