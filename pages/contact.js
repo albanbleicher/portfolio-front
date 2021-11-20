@@ -4,7 +4,6 @@ import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import Link from "next/link";
 export default function Contact(props) {
-  console.log(props.global);
   return (
     <Fragment>
       <SEO title="Contact" {...props} />

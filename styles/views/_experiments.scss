@@ -1,0 +1,26 @@
+.experiments-container {
+    padding: 80px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 80px 20px;
+    }
+
+    h1 {
+        font-family: font('alt');
+        font-size: 3rem;
+        font-weight: lighter;
+        margin: 0;
+        color: color('alt');
+        margin-bottom: 50px;
+    }
+
+
+}
