@@ -1,5 +1,5 @@
 import Navbar from "../components/navbar";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "../styles/globals.scss";
 export const GlobalContext = createContext({});
 import { useRouter } from "next/dist/client/router";
@@ -13,12 +13,16 @@ function App({ Component, router, pageProps }) {
   const [loading, setLoading] = useState(true);
   useLayoutEffect(() => {
     setTimeout(() => {
-      setLoading(false);
-      setTimeout(() => {
-        gsap.from(".content_layout", { opacity: 0 });
+      gsap.to(".loading", { opacity: 0 }).then(() => {
+        setTimeout(() => {
+          setLoading(false);
+          gsap.from(".content_layout", { opacity: 0 });
+        }, 500);
       }, 100);
-    }, 1500);
+    }, 2000);
+  }, []);
 
+  useEffect(() => {
     document.querySelector("#__next").scrollTo({
       top: 0,
       left: 0,
