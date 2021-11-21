@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect } from "react";
+import { Fragment, useEffect, useLayoutEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import FluidImage from "../components/FluidImage";
@@ -8,7 +8,11 @@ import gsap from "gsap";
 import SplitType from "split-type";
 
 export default function Home(props) {
+  useEffect(() => {
+    console.log("after paint");
+  });
   useLayoutEffect(() => {
+    console.log("before paint");
     const title = new SplitType(".home-content h2");
     const titleSecondSplit = new SplitType(title.chars);
     gsap.from(".text p", { opacity: 0, duration: 1.5, delay: 1.5 });
