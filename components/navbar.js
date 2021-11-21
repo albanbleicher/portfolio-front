@@ -1,6 +1,11 @@
+import gsap from "gsap";
 import Link from "next/link";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 export default function Navbar() {
+  useLayoutEffect(() => {
+    gsap.from("nav ul, nav ul li", { opacity: 0, delay: 0.4 });
+    gsap.from("nav h2", { opacity: 0, delay: 0.5 });
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav>
