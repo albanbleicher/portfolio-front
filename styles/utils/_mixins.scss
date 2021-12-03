@@ -44,13 +44,15 @@
 }
 
 @mixin animate-vt-line {
-    animation: vt-line-appear 3s cubic-bezier(.46, .43, .3, 1) forwards;
+    animation: vt-line-appear 2s ease-out forwards;
     animation-delay: 2s;
 
 }
 
 @mixin animate-hz-line {
-    animation: hz-line-appear 4s cubic-bezier(.46, .43, .3, 1) forwards;
+    animation: hz-line-appear 2s ease-out forwards;
+    animation-delay: 2s;
+
 }
 
 @mixin animate-hz-line-inner {

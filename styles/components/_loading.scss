@@ -6,6 +6,9 @@
     height: 100%;
     grid-area: 1 / 1 / 12 / 21;
 
+    background-color: color('main');
+    z-index: 9999;
+
     h2 {
         font-family: font('alt');
         font-size: 5.5rem;

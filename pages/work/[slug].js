@@ -40,7 +40,7 @@ export default function SingleWork(props) {
         y: 100,
         stagger: 0.02,
         duration: 1.5,
-        delay: 1.3,
+        delay: 1,
         ease: "easeInOut",
       })
       .then(() => {

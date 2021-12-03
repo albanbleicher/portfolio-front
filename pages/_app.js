@@ -16,7 +16,7 @@ function App({ Component, router, pageProps }) {
       gsap.to(".loading", { opacity: 0 }).then(() => {
         setTimeout(() => {
           setLoading(false);
-          gsap.from(".content_layout", { opacity: 0 });
+          pageProps.loading = false;
         }, 500);
       }, 100);
     }, 2000);
@@ -37,22 +37,22 @@ function App({ Component, router, pageProps }) {
     });
   }, [pathname]);
 
-  if (loading) return <Loading />;
-  else
-    return (
-      <GlobalContext.Provider value={pageProps}>
-        <React.StrictMode>
-          <Curtains
-            production={true}
-            className={router.route === "/" ? "curtains-canvas home" : null}
-          >
-            <Navbar />
-            <div className="content_layout">
-              <Component {...pageProps} />
-            </div>
-          </Curtains>
-        </React.StrictMode>
-      </GlobalContext.Provider>
-    );
+  return (
+    <GlobalContext.Provider value={pageProps}>
+      <React.StrictMode>
+        {loading && <Loading />}
+
+        <Curtains
+          production={true}
+          className={router.route === "/" ? "curtains-canvas home" : null}
+        >
+          <Navbar />
+          <div className="content_layout">
+            <Component {...pageProps} loading={loading} />
+          </div>
+        </Curtains>
+      </React.StrictMode>
+    </GlobalContext.Provider>
+  );
 }
 export default App;

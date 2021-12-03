@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useLayoutEffect } from "react";
+import { Fragment, useLayoutEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import FluidImage from "../components/FluidImage";
@@ -11,13 +11,22 @@ export default function Home(props) {
   useLayoutEffect(() => {
     const title = new SplitType(".home-content h2");
     const titleSecondSplit = new SplitType(title.chars);
-    gsap.from(".text p", { opacity: 0, duration: 1.5, delay: 1.5 });
+    gsap.from(".text p", {
+      opacity: 0,
+      duration: 1.5,
+      delay: props.loading ? 2.5 : 1.5,
+    });
+    gsap.from(".curtains-canvas", {
+      opacity: 0,
+      duration: 1,
+      delay: props.loading ? 2.75 : 1.75,
+    });
 
     gsap.from(titleSecondSplit.chars, {
       y: 50,
       opacity: 0,
       stagger: 0.06,
-      delay: 1,
+      delay: props.loading ? 2 : 1,
       duration: 1.5,
       ease: "back.out(1.7)",
     });
@@ -47,7 +56,6 @@ export default function Home(props) {
 }
 export async function getStaticProps() {
   const global = await fetchAPI("/settings");
-
   return {
     props: { global },
   };

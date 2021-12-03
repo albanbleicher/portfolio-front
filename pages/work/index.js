@@ -6,8 +6,12 @@ import WorkCard from "../../components/work_card";
 import gsap from "gsap";
 export default function Work(props) {
   useLayoutEffect(() => {
-    gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
-  });
+    gsap.from(".work-card", {
+      opacity: 0,
+      stagger: 0.5,
+      delay: props.loading ? 2 : 0.2,
+    });
+  }, []);
   return (
     <React.Fragment>
       <SEO {...props} />
@@ -38,7 +42,6 @@ export default function Work(props) {
 export async function getStaticProps() {
   const work = await fetchAPI("/projects?_sort=date:DESC");
   const global = await fetchAPI("/settings");
-
   return {
     props: { work, title: "Work", global },
   };

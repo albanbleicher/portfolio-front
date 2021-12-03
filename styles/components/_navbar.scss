@@ -61,6 +61,8 @@ nav {
         bottom: 0;
         content: '';
         height: 1px;
+        width: 100vw;
+        transform: scaleX(0);
         background-color: color('line');
         @include animate-hz-line;
     }

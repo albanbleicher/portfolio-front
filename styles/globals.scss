@@ -13,7 +13,9 @@ html {
     top: 0;
     content: '';
     width: 1px;
-    height: 0%;
+    height: 100%;
+    transform: scaleY(0);
+
     background-color: color('line');
     @include animate-vt-line;
     z-index: 0;
@@ -29,7 +31,9 @@ html {
     top: 0;
     content: '';
     width: 1px;
-    height: 0%;
+    height: 100%;
+    transform: scaleY(0);
+
     background-color: color('line');
     @include animate-vt-line;
     z-index: 9999;
@@ -100,15 +104,11 @@ body {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  opacity: 0;
-  animation: fade-appear 1s forwards;
-  animation-delay: 1s;
 
   &.home {
 
     @media only screen and (max-width:900px) {
       opacity: 0 !important;
-      animation: none;
     }
   }
 }

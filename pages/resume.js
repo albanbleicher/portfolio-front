@@ -30,7 +30,6 @@ export default function Resume(props) {
     });
     gsap.from(".work-section h2, .work-section .resume-block", {
       opacity: 0,
-      y: 100,
       stagger: 0.2,
       duration: 1.5,
       delay: 1.2,
@@ -41,7 +40,6 @@ export default function Resume(props) {
       gsap.to(".school-section", { opacity: 1 });
       gsap.from(".school-section h2, .school-section .resume-block", {
         opacity: 0,
-        y: 100,
         stagger: 0.2,
         duration: 1.5,
       });
@@ -52,9 +50,8 @@ export default function Resume(props) {
       gsap.to(".skills-section", { opacity: 1 });
       gsap.from(".skills-section h2, .skills-section .resume-block", {
         opacity: 0,
-        y: 100,
-        stagger: 0.2,
-        duration: 1.5,
+        stagger: 0.1,
+        duration: 0.5,
       });
     }
   }, [skillsInView]);
