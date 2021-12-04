@@ -49,7 +49,7 @@ export default function Contact(props) {
           </Link>
         </div>
       </div>
-      <Footer />
+      <Footer loading={props.loading} />
     </Fragment>
   );
 }

@@ -16,7 +16,7 @@ export default function Legal(props) {
           children={props.legal.content}
         />
       </div>
-      <Footer />
+      <Footer loading={props.loading} />
     </React.Fragment>
   );
 }

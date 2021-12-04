@@ -1,7 +1,18 @@
 import Link from "next/link";
-export default function Footer() {
+import { useEffect, useState } from "react";
+export default function Footer(props) {
+  const [delay, setDelay] = useState(true);
+
+  useEffect(() => {
+    setDelay(props.loading);
+  }, []);
   return (
-    <div className="footer">
+    <div
+      style={{
+        "--delay": delay ? "2s" : "0s",
+      }}
+      className="footer"
+    >
       <p>2021</p>
       <Link href="/legal">
         <a>Legal</a>

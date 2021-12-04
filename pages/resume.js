@@ -25,14 +25,14 @@ export default function Resume(props) {
     gsap.from("h1 span", {
       opacity: 0,
       y: 100,
-      delay: 0.5,
+      delay: props.loading ? 2 : 0,
       duration: 1.2,
     });
     gsap.from(".work-section h2, .work-section .resume-block", {
       opacity: 0,
       stagger: 0.2,
       duration: 1.5,
-      delay: 1.2,
+      delay: props.loading ? 3 : 1,
     });
   }, []);
   useLayoutEffect(() => {
@@ -134,7 +134,7 @@ export default function Resume(props) {
           <span>{props.global.mail}</span>
         </a>
       </div>
-      <Footer />
+      <Footer loading={props.loading} />
     </React.Fragment>
   );
 }

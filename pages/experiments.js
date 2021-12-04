@@ -9,8 +9,13 @@ export default function Contact(props) {
       <SEO {...props} />
       <div className="experiments-container">
         <h1>Experiments</h1>
+        <span>Small stuff I made at home, at school</span>
+
+        <div className="experiments-list">
+          <h2>LListtt</h2>
+        </div>
       </div>
-      <Footer />
+      <Footer loading={props.loading} />
     </Fragment>
   );
 }

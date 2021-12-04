@@ -35,7 +35,7 @@ export default function Work(props) {
           </Fragment>
         )}
       </div>
-      <Footer />
+      <Footer loading={props.loading} />
     </React.Fragment>
   );
 }
