@@ -1,14 +1,35 @@
-import { Fragment } from "react";
+import { Fragment, useLayoutEffect } from "react";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import Link from "next/link";
+import gsap from "gsap";
+import SplitType from "split-type";
+
 export default function Contact(props) {
+  useLayoutEffect(() => {
+    const title = new SplitType("h1 span");
+    gsap.from(title.chars, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.06,
+      delay: props.loading ? 2.5 : 0,
+      duration: 1.5,
+      ease: "back.out(1.7)",
+    });
+    gsap.from(".contact-wrapper a", {
+      opacity: 0,
+      stagger: 0.5,
+      delay: props.loading ? 3.5 : 1.5,
+    });
+  }, []);
   return (
     <Fragment>
       <SEO title="Contact" {...props} />
       <div className="contact-container">
-        <h1>Contact</h1>
+        <h1>
+          <span>Contact</span>
+        </h1>
         <div className="contact-wrapper">
           <Link href={props.global.github} passHref={true} shallow={true}>
             <a target="_blank">

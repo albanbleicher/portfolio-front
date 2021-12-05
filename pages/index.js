@@ -27,7 +27,7 @@ export default function Home(props) {
       duration: 1.5,
       delay: props.loading ? 3 : 0.75,
     });
-    gsap.from(".curtains-canvas", {
+    gsap.from(".curtains-canvas, .avatar", {
       opacity: 0,
       duration: 1,
       delay: props.loading ? 3.75 : 1,

@@ -34,6 +34,7 @@ nav {
             height: 1px;
             background-color: color('text');
             transform-origin: center;
+            transition: all 0.5s;
 
             &:first-child {
                 top: 20%;
@@ -47,6 +48,26 @@ nav {
                 top: 80%;
             }
 
+        }
+
+        &.open {
+            span {
+                &:first-child {
+                    top: 50%;
+                    transform: rotate(-45deg);
+                }
+
+                &:nth-child(2) {
+                    top: 50%;
+                    transform: scaleX(0);
+                }
+
+                &:last-child {
+                    top: 50%;
+                    transform: rotate(45deg);
+
+                }
+            }
         }
 
         @media only screen and (max-width:700px) {

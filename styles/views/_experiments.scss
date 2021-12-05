@@ -20,11 +20,21 @@
         margin: 0;
         color: color('alt');
         margin-bottom: 15px;
+        overflow: hidden;
+
+        span {
+            display: block;
+
+        }
     }
 
     &>span {
         font-weight: 300;
         font-size: 0.9rem;
+    }
+
+    .experiments-list {
+        margin-top: 40px;
     }
 
 

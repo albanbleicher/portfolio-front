@@ -1,11 +1,6 @@
-import gsap from "gsap";
 import Link from "next/link";
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 export default function Navbar() {
-  useLayoutEffect(() => {
-    gsap.from("nav ul, nav ul li", { opacity: 0, delay: 0.4 });
-    gsap.from("nav h2", { opacity: 0, delay: 0.5 });
-  }, []);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav>
@@ -13,7 +8,10 @@ export default function Navbar() {
         <h2 onClick={() => setIsOpen(false)}>ALBAN</h2>
       </Link>
 
-      <div onClick={() => setIsOpen(!isOpen)} className="toggle">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className={isOpen ? "toggle open" : "toggle"}
+      >
         <span></span>
         <span></span>
         <span></span>

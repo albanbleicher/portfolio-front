@@ -2,11 +2,11 @@ import { fetchAPI } from "../../lib/api";
 import React, { Fragment, useEffect, useLayoutEffect } from "react";
 import SEO from "../../components/seo";
 import Footer from "../../components/footer";
-import WorkCard from "../../components/work_card";
+import Card from "../../components/card";
 import gsap from "gsap";
 export default function Work(props) {
   useLayoutEffect(() => {
-    gsap.from(".work-card", {
+    gsap.from(".card", {
       opacity: 0,
       stagger: 0.5,
       delay: props.loading ? 2 : 0.2,
@@ -19,7 +19,7 @@ export default function Work(props) {
         {props.work.length ? (
           <div className="work-list">
             {props.work.map((item, i) => (
-              <WorkCard {...item} index={i} key={i} />
+              <Card {...item} index={i} key={i} origin="work" />
             ))}
           </div>
         ) : (

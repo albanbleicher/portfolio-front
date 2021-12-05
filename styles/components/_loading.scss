@@ -8,6 +8,9 @@
 
     background-color: color('main');
     z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     h2 {
         font-family: font('alt');
@@ -15,6 +18,7 @@
         font-weight: 400;
         position: relative;
         overflow: hidden;
+        text-align: center;
 
         span {
             display: block;

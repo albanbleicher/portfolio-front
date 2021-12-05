@@ -2,7 +2,7 @@ import Navbar from "../components/navbar";
 import React, { createContext, useEffect, useState } from "react";
 import "../styles/globals.scss";
 export const GlobalContext = createContext({});
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import { useLayoutEffect } from "react";
 import { Curtains } from "react-curtains";
 import gsap from "gsap";
