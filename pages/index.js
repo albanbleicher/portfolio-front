@@ -19,12 +19,12 @@ export default function Home(props) {
       opacity: 0,
       stagger: 0.06,
       delay: props.loading ? 2.5 : 0,
-      duration: 1.5,
+      duration: 1,
       ease: "back.out(1.7)",
     });
     gsap.from(".text p", {
       opacity: 0,
-      duration: 1.5,
+      duration: 1,
       delay: props.loading ? 3 : 0.75,
     });
     gsap.from(".curtains-canvas, .avatar", {

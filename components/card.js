@@ -9,6 +9,7 @@ export default function Card({
   slug,
   origin,
   medias,
+  link,
 }) {
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -38,7 +39,7 @@ export default function Card({
           <div className="card-text-content">
             <p>
               {short_description} <br />
-              <Link passHref={true} href="https://sequins.albanbleicher.fr">
+              <Link passHref={true} href={link}>
                 <a target="_blank">
                   <span>See {title} live ↗</span>
                 </a>

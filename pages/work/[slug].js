@@ -20,7 +20,7 @@ export default function SingleWork(props) {
         y: 100,
         duration: 1,
         stagger: 0.2,
-        delay: 0.5,
+        delay: props.loading ? 2.5 : 0.5,
         ease: "circ",
       })
       .then(() => {
@@ -40,7 +40,8 @@ export default function SingleWork(props) {
         y: 100,
         stagger: 0.02,
         duration: 1.5,
-        delay: 1,
+        delay: props.loading ? 3 : 0.5,
+
         ease: "easeInOut",
       })
       .then(() => {
@@ -50,7 +51,8 @@ export default function SingleWork(props) {
     gsap.from(".single-work-content", {
       opacity: 0,
       duration: 1.4,
-      delay: 2.8,
+      delay: props.loading ? 4 : 2,
+
       ease: "easeInOut",
     });
   }, []);
@@ -78,8 +80,8 @@ export default function SingleWork(props) {
           )}
           <div className="main-and-args">
             <WorkImage
-              data={props.medias[1].formats.large.provider_metadata.public_id}
-              big={props.medias[1].formats.large.provider_metadata.public_id}
+              data={props.medias[0].formats.large.provider_metadata.public_id}
+              big={props.medias[0].formats.large.provider_metadata.public_id}
             />
             {props.portfolio_element && (
               <div className="args">
@@ -102,7 +104,7 @@ export default function SingleWork(props) {
             <div className="gallery">
               {props.medias.map(
                 (item, i) =>
-                  i > 1 && (
+                  i > 0 && (
                     <WorkImage
                       data={item.formats.thumbnail.provider_metadata.public_id}
                       big={item.formats.large.provider_metadata.public_id}
