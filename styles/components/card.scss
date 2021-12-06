@@ -14,7 +14,7 @@
         position: relative;
         margin: 0;
         height: 2rem;
-        width: 50%;
+        width: 55%;
         overflow: hidden;
 
         span {
@@ -38,6 +38,11 @@
         cursor: pointer;
         user-select: none;
 
+        .type {
+            text-align: right;
+            line-height: 1rem;
+
+        }
 
         &:hover {
             h2 {
@@ -57,7 +62,7 @@
             }
 
             .type {
-                opacity: 1
+                opacity: 1;
             }
 
             .icon {
