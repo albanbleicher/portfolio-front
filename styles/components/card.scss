@@ -11,10 +11,15 @@
     h2 {
         font-weight: 300;
         font-size: 1rem;
+
+        @media only screen and(max-width:390px) {
+            font-size: 0.8rem;
+        }
+
         position: relative;
         margin: 0;
         height: 2rem;
-        width: 55%;
+        width: 60%;
         overflow: hidden;
 
         span {
@@ -41,6 +46,7 @@
         .type {
             text-align: right;
             line-height: 1rem;
+            width: 40%;
 
         }
 
