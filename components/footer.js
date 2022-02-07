@@ -13,7 +13,7 @@ export default function Footer(props) {
       }}
       className="footer"
     >
-      <p>2021</p>
+      <p>2022</p>
       <Link href="/legal">
         <a>Legal</a>
       </Link>
