@@ -7,6 +7,7 @@ import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
 import gsap from "gsap";
 import SplitType from "split-type";
+import Images from "../../components/images";
 export default function SingleWork(props) {
   useLayoutEffect(() => {
     gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
@@ -66,6 +67,7 @@ export default function SingleWork(props) {
             {new Date(props.date).getFullYear()} — {props.type}
           </span>
         </div>
+        <Images />
         <div className="single-work-content">
           <ReactMarkdown
             linkTarget="_target"
