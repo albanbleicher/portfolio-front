@@ -5,9 +5,11 @@ import { fetchAPI } from "../lib/api";
 import { useInView } from "react-intersection-observer";
 import gsap from "gsap";
 import SplitType from "split-type";
+import { useState } from "react";
 
 export default function Resume(props) {
   const { resume } = props;
+  const [topSeen, setTopSeen] = useState(false);
   const [school, schoolInView] = useInView({
     threshold: 0.7,
     triggerOnce: true,
@@ -20,6 +22,7 @@ export default function Resume(props) {
     threshold: 0.7,
     triggerOnce: true,
   });
+  const timeline = gsap.timeline();
   useLayoutEffect(() => {
     gsap.to(".school-section", { opacity: 0, duration: 0 });
     gsap.to(".skills-section", { opacity: 0, duration: 0 });
@@ -32,27 +35,35 @@ export default function Resume(props) {
       duration: 1.5,
       ease: "back.out(1.7)",
     });
-    gsap.from(".work-section h2, .work-section .resume-block", {
-      opacity: 0,
-      stagger: 0.2,
-      duration: 1.5,
-      delay: props.loading ? 2.8 : 0.8,
-    });
-  }, []);
-  useLayoutEffect(() => {
-    if (schoolInView) {
-      gsap.to(".school-section", { opacity: 1 });
-      gsap.from(".school-section h2, .school-section .resume-block", {
+    timeline
+      .from(".work-section h2, .work-section .resume-block", {
         opacity: 0,
         stagger: 0.2,
         duration: 1.5,
+        delay: props.loading ? 2.8 : 0.8,
+      })
+      .then(() => {
+        setTopSeen(true);
       });
+  }, []);
+  useLayoutEffect(() => {
+    if (schoolInView && topSeen) {
+      gsap.to(".school-section", { opacity: 1, duration: 0 });
+      timeline.from(
+        ".school-section h2, .school-section .resume-block",
+        {
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1.5,
+        },
+        ">"
+      );
     }
-  }, [schoolInView]);
+  }, [schoolInView, topSeen]);
   useLayoutEffect(() => {
     if (skillsInView) {
-      gsap.to(".skills-section", { opacity: 1 });
-      gsap.from(".skills-section h2, .skills-section .resume-block", {
+      timeline.to(".skills-section", { opacity: 1 });
+      timeline.from(".skills-section h2, .skills-section .resume-block", {
         opacity: 0,
         stagger: 0.1,
         duration: 0.5,
@@ -62,13 +73,12 @@ export default function Resume(props) {
 
   useLayoutEffect(() => {
     if (bonjourInView) {
-      console.log(true);
-      gsap.fromTo(
+      timeline.fromTo(
         ".say-bonjour h2 span",
         { opacity: 0, y: 100 },
         { opacity: 1, y: 0, duration: 0.7 }
       );
-      gsap.fromTo(
+      timeline.fromTo(
         ".say-bonjour a span",
         { opacity: 0, y: 100 },
         { opacity: 1, y: 0, delay: 0.2, duration: 0.7 }

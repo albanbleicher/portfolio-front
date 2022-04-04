@@ -10,7 +10,9 @@ const Seo = (props) => {
       ? props.short_description
       : props.global.seo_description,
     // Get full image URL
-    shareImage: props.global.seo_screenshot.url,
+    shareImage: props.seo_media
+      ? props.seo_media.url
+      : props.global.seo_screenshot.url,
   };
 
   return (

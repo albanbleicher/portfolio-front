@@ -22,7 +22,9 @@
     "react-moment": "^1.1.1",
     "rehype-raw": "^5.1.0",
     "sass": "^1.32.11",
-    "split-type": "^0.2.5"
+    "split-type": "^0.2.5",
+    "three": "^0.139.2",
+    "tweakpane": "^3.0.8"
   },
   "devDependencies": {
     "node-loader": "^2.0.0",
