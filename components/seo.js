@@ -1,6 +1,5 @@
 import Head from "next/head";
 const Seo = (props) => {
-  console.log(props);
   const siteName =
     props.global && props.global.name ? props.global.name : "Alban Bleicher";
   const baseline = props.title ? props.title : props.global.baseline;

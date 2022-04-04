@@ -48,7 +48,7 @@ export default function Resume(props) {
   }, []);
   useLayoutEffect(() => {
     if (schoolInView && topSeen) {
-      timeline.to(".school-section", { opacity: 1, duration: 0 }, "-=1");
+      gsap.to(".school-section", { opacity: 1, duration: 0 });
       timeline.from(
         ".school-section h2, .school-section .resume-block",
         {
@@ -56,7 +56,7 @@ export default function Resume(props) {
           stagger: 0.2,
           duration: 1.5,
         },
-        "-=1"
+        ">"
       );
     }
   }, [schoolInView, topSeen]);
