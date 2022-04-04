@@ -7,7 +7,6 @@ import Footer from "../../components/footer";
 import WorkImage from "../../components/work_image";
 import gsap from "gsap";
 import SplitType from "split-type";
-import Images from "../../components/images";
 export default function SingleWork(props) {
   useLayoutEffect(() => {
     gsap.from(".content_layout", { opacity: 0, duration: 1.5 });
@@ -67,28 +66,25 @@ export default function SingleWork(props) {
             {new Date(props.date).getFullYear()} — {props.type}
           </span>
         </div>
-        <Images />
         <div className="single-work-content">
-          <ReactMarkdown
-            linkTarget="_target"
-            className="long-description"
-            rehypePlugins={[rehypeRaw]}
-            children={props.description}
-          />
-          {props.link && (
-            <p className="go-to-site">
-              — <a href={props.link}>View project</a>
-            </p>
-          )}
-          <div className="main-and-args">
-            <WorkImage
-              data={props.medias[0].formats.large.provider_metadata.public_id}
-              big={props.medias[0].formats.large.provider_metadata.public_id}
+          <div className="description-wrapper">
+            <ReactMarkdown
+              linkTarget="_target"
+              className="description"
+              rehypePlugins={[rehypeRaw]}
+              children={props.description}
             />
+            {props.link && (
+              <p className="go-to-site">
+                — <a href={props.link}>View project</a>
+              </p>
+            )}
+          </div>
+          <div className="key-infos-wrapper">
             {props.portfolio_element && (
-              <div className="args">
+              <div className="key-infos">
                 {props.portfolio_element.map((item) => (
-                  <div key={item.label} className="args-element">
+                  <div key={item.label} className="key-element">
                     <h3>{item.label}</h3>
                     <span>{item.value}</span>
                   </div>
@@ -96,26 +92,20 @@ export default function SingleWork(props) {
               </div>
             )}
           </div>
-          <div className="credits-and-gallery">
-            <ReactMarkdown
-              linkTarget="_target"
-              className="credits"
-              rehypePlugins={[rehypeRaw]}
-              children={props.credits}
-            />
-            <div className="gallery">
-              {props.medias.map(
-                (item, i) =>
-                  i > 0 && (
-                    <WorkImage
-                      data={item.formats.thumbnail.provider_metadata.public_id}
-                      big={item.formats.large.provider_metadata.public_id}
-                      key={item.formats.thumbnail.url}
-                    />
-                  )
-              )}
-            </div>
-          </div>
+        </div>
+        <div className="work-images">
+          {props.medias.map((image, i) => {
+            return <WorkImage src={image.url} key={i} />;
+          })}
+        </div>
+
+        <div className="credits-and-gallery">
+          <ReactMarkdown
+            linkTarget="_target"
+            className="credits"
+            rehypePlugins={[rehypeRaw]}
+            children={props.credits}
+          />
         </div>
       </div>
       <Footer />

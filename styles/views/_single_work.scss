@@ -1,297 +1,257 @@
 .single-work {
+  position: relative;
+
+  .zoomed_view {
+    background-color: transparentize(color("main"), 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+
+    @media only screen and (max-width: 800px) {
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    span {
+      @include content;
+      line-height: unset;
+      color: transparentize(color("alt"), 0.7);
+      position: fixed;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    svg {
+      position: absolute;
+      width: 5vw;
+      height: 5vw;
+      animation: rotate infinite 1.5s;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    img {
+      height: 80%;
+
+      @media only screen and (max-width: 1000px) {
+        height: 50%;
+      }
+
+      @media only screen and (max-width: 670px) {
+        width: 90%;
+        height: unset;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .single-work-header {
+    padding: 40px;
+
+    @media only screen and (max-width: 700px) {
+      padding: 40px 10px;
+    }
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
 
-    .zoomed_view {
-        background-color: transparentize(color('main'), 0.1);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 9999;
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: color("line");
 
-        @media only screen and (max-width:800px) {
-            padding: 20px;
-            box-sizing: border-box;
-        }
+      @media only screen and (min-width: 700px) {
+        @include animate-hz-line-inner;
+      }
 
-        span {
-            @include content;
-            line-height: unset;
-            color: transparentize(color('alt'), 0.7);
-            position: fixed;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-
-        }
-
-        svg {
-            position: absolute;
-            width: 5vw;
-            height: 5vw;
-            animation: rotate infinite 1.5s;
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        img {
-            height: 80%;
-
-            @media only screen and (max-width:1000px) {
-                height: 50%;
-            }
-
-            @media only screen and (max-width:670px) {
-                width: 90%;
-                height: unset;
-                object-fit: contain;
-            }
-        }
+      @media only screen and (max-width: 700px) {
+        left: -10vw;
+        width: 100vw;
+      }
     }
 
+    span {
+      @include content;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      line-height: 1rem;
+      word-break: keep-all;
 
-    .single-work-header {
-        padding: 40px;
+      @media only screen and (max-width: 470px) {
+        padding: 0 20px;
+      }
 
-        @media only screen and (max-width:700px) {
-            padding: 40px 10px;
+      div.line {
+        height: 1rem;
+        overflow: hidden;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 4rem;
+      line-height: 4rem;
+      padding: 0 80px;
+
+      div.line {
+        height: 4rem;
+        overflow: hidden;
+      }
+
+      @media only screen and (max-width: 600px) {
+        padding: 0 20px;
+        font-size: 3rem;
+      }
+
+      font-family: font("alt");
+      font-weight: 200;
+      margin: 0;
+      margin-bottom: 15px;
+    }
+  }
+
+  .single-work-content {
+    padding: 80px;
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1200px) {
+      padding: 40px;
+      flex-direction: column;
+    }
+    @media only screen and (max-width: 400px) {
+      padding: 40px 0px;
+      flex-direction: column;
+    }
+
+    box-sizing: border-box;
+
+    a {
+      @include link;
+    }
+
+    .description-wrapper {
+      width: 66%;
+      @include content;
+
+      div.line {
+        height: 2.2rem;
+        overflow: hidden;
+      }
+
+      @media only screen and (max-width: 1200px) {
+        width: 100%;
+      }
+    }
+
+    .key-infos-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media only screen and (max-width: 1200px) {
+        flex-direction: column;
+        padding-bottom: 40px;
+      }
+
+      .key-infos {
+        @media only screen and (max-width: 1200px) {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          margin-top: 50px;
+          flex-wrap: wrap;
         }
 
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        .key-element {
+          @media only screen and (max-width: 700px) {
+            width: 250px;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 30px;
+          }
+
+          @media only screen and (max-width: 700px) {
+            &:nth-child(3) {
+              margin-top: 30pxp;
+            }
+          }
+
+          h3 {
+            font-family: font("alt");
+            font-weight: lighter;
+            font-size: 2.5rem;
+            margin: 0;
+            margin-bottom: 10px;
+          }
+
+          span {
+            @include content;
+            line-height: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+  .credits-and-gallery {
+    padding: 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 700px) {
+      flex-direction: column-reverse;
+    }
+
+    .credits {
+      @include content;
+      width: 45%;
+      font-size: 0.8rem;
+      line-height: 1.3rem;
+      align-self: flex-end;
+
+      @media only screen and (max-width: 700px) {
+        width: 100%;
         text-align: center;
-        position: relative;
+      }
+
+      a {
+        @include link;
 
         &::after {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            content: '';
-            width: 100%;
-            height: 1px;
-            background-color: color('line');
-
-            @media only screen and (min-width:700px) {
-                @include animate-hz-line-inner
-            }
-
-            @media only screen and (max-width:700px) {
-                left: -10vw;
-                width: 100vw;
-            }
+          bottom: -2px;
         }
-
-        span {
-            @include content;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            line-height: 1rem;
-            word-break: keep-all;
-
-            @media only screen and (max-width:470px) {
-                padding: 0 20px;
-            }
-
-            div.line {
-                height: 1rem;
-                overflow: hidden;
-            }
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 4rem;
-            line-height: 4rem;
-            padding: 0 80px;
-
-            div.line {
-                height: 4rem;
-                overflow: hidden;
-            }
-
-            @media only screen and (max-width:600px) {
-                padding: 0 20px;
-                font-size: 3rem;
-            }
-
-            font-family: font('alt');
-            font-weight: 200;
-            margin: 0;
-            margin-bottom: 15px;
-
-        }
+      }
     }
-
-    .single-work-content {
-        padding: 80px;
-
-        @media only screen and (max-width:700px) {
-            padding: 40px 0;
-        }
-
-        box-sizing: border-box;
-
-        a {
-            @include link
-        }
-
-        .long-description {
-            width: 66%;
-            @include content;
-
-            div.line {
-                height: 2.2rem;
-                overflow: hidden;
-            }
-
-            @media only screen and (max-width:700px) {
-                width: 80%;
-            }
-
-            @media only screen and (max-width:500px) {
-                width: 100%;
-            }
-
-        }
-
-        .main-and-args {
-            padding: 80px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            @media only screen and (max-width:700px) {
-                flex-direction: column;
-                padding-bottom: 40px;
-            }
-
-            .work_image {
-                width: 60%;
-
-                @media only screen and (max-width:700px) {
-                    width: 100%;
-                }
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            .args {
-                width: 30%;
-
-                @media only screen and (max-width:700px) {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-around;
-                    text-align: center;
-                    margin-top: 50px;
-                    flex-wrap: wrap;
-                }
-
-                .args-element {
-                    @media only screen and (max-width:700px) {
-                        width: 250px;
-                    }
-
-                    &:not(:last-child) {
-                        margin-bottom: 30px;
-                    }
-
-                    @media only screen and (max-width:700px) {
-                        &:nth-child(3) {
-                            margin-top: 30pxp;
-                        }
-                    }
-
-                    h3 {
-                        font-family: font('alt');
-                        font-weight: lighter;
-                        font-size: 2.5rem;
-                        margin: 0;
-                        margin-bottom: 10px;
-                    }
-
-                    span {
-                        @include content;
-                        line-height: 1.1rem;
-
-                    }
-                }
-            }
-        }
-
-        .credits-and-gallery {
-            display: flex;
-            justify-content: space-between;
-
-            @media only screen and (max-width:700px) {
-                flex-direction: column-reverse;
-            }
-
-            .credits {
-                @include content;
-                width: 45%;
-                font-size: 0.8rem;
-                line-height: 1.3rem;
-                align-self: flex-end;
-
-                @media only screen and (max-width:700px) {
-                    width: 100%;
-                    text-align: center;
-                }
-
-                a {
-                    @include link;
-
-                    &::after {
-                        bottom: -2px
-                    }
-                }
-
-            }
-
-            .gallery {
-                width: 50%;
-
-                @media only screen and (max-width:700px) {
-                    width: 100%;
-                    padding-bottom: 40px;
-                }
-
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-
-                .work_image {
-                    width: 48%;
-                    padding: 10px 0;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
-            }
-        }
-
-    }
+  }
 }
