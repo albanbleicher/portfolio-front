@@ -45,6 +45,7 @@ function App({ Component, router, pageProps }) {
         <Curtains
           production={true}
           className={router.route === "/" ? "curtains-canvas home" : null}
+          watchScroll={false}
         >
           <Navbar />
           <div className="content_layout">
