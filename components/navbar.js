@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav>
       <Link shallow={true} href="/">
-        <h2 onClick={() => setIsOpen(false)}>ALBAN</h2>
+        <h2 onClick={() => setIsOpen(false)}>Alban</h2>
       </Link>
 
       <div
