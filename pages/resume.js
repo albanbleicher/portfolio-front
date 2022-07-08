@@ -5,21 +5,15 @@ import { fetchAPI } from "../lib/api";
 import { useInView } from "react-intersection-observer";
 import gsap from "gsap";
 import SplitType from "split-type";
-import { useState } from "react";
 
 export default function Resume(props) {
   const { resume } = props;
-  const [topSeen, setTopSeen] = useState(false);
-  const [school, schoolInView] = useInView({
-    threshold: 0.7,
-    triggerOnce: true,
-  });
   const [skills, skillsInView] = useInView({
-    threshold: 0.7,
+    threshold: 0.2,
     triggerOnce: true,
   });
   const [bonjour, bonjourInView] = useInView({
-    threshold: 0.7,
+    threshold: 0.5,
     triggerOnce: true,
   });
   const timeline = gsap.timeline();
@@ -35,31 +29,19 @@ export default function Resume(props) {
       duration: 1.5,
       ease: "back.out(1.7)",
     });
-    timeline
-      .from(".work-section h2, .work-section .resume-block", {
+    gsap.to(".school-section", { opacity: 1, duration: 0 });
+
+    timeline.from(
+      ".work-section h2, .work-section .resume-block, .school-section h2, .school-section .resume-block",
+      {
         opacity: 0,
         stagger: 0.2,
         duration: 1.5,
-        delay: props.loading ? 2.8 : 0.8,
-      })
-      .then(() => {
-        setTopSeen(true);
-      });
+        delay: props.loading ? 2.7 : 0.8,
+      }
+    );
   }, []);
-  useLayoutEffect(() => {
-    if (schoolInView && topSeen) {
-      gsap.to(".school-section", { opacity: 1, duration: 0 });
-      timeline.from(
-        ".school-section h2, .school-section .resume-block",
-        {
-          opacity: 0,
-          stagger: 0.2,
-          duration: 1.5,
-        },
-        ">"
-      );
-    }
-  }, [schoolInView, topSeen]);
+
   useLayoutEffect(() => {
     if (skillsInView) {
       timeline.to(".skills-section", { opacity: 1 });
@@ -116,7 +98,7 @@ export default function Resume(props) {
               </div>
             ))}
           </div>
-          <div ref={school} className="resume-section school-section">
+          <div className="resume-section school-section">
             <h2>Instruction</h2>
             {resume.Instruction.map((item) => (
               <div key={item.Diploma} className="resume-block">

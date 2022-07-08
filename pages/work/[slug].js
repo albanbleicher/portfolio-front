@@ -93,6 +93,16 @@ export default function SingleWork(props) {
             )}
           </div>
         </div>
+        {props.video && (
+          <div className="work-video">
+            <ReactMarkdown
+              linkTarget="_target"
+              className="description"
+              rehypePlugins={[rehypeRaw]}
+              children={props.video}
+            />
+          </div>
+        )}
         <div className="work-images">
           {props.medias.map((image, i) => {
             return <WorkImage src={image.url} key={i} />;
