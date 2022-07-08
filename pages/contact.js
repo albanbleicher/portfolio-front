@@ -31,12 +31,16 @@ export default function Contact(props) {
           <span>Contact</span>
         </h1>
         <div className="contact-wrapper">
-          <Link href={props.global.github} passHref={true} shallow={true}>
+          <Link
+            href={"mailto:" + props.global.mail}
+            passHref={true}
+            shallow={true}
+          >
             <a target="_blank">
               <div className="contact-item">
                 <h2>
-                  <span>Github</span>
-                  <span>Github</span>
+                  <span>Mail</span>
+                  <span>Mail</span>
                 </h2>
                 <span className="arrow">↗</span>
               </div>
@@ -53,16 +57,13 @@ export default function Contact(props) {
               </div>
             </a>
           </Link>
-          <Link
-            href={"mailto:" + props.global.mail}
-            passHref={true}
-            shallow={true}
-          >
+
+          <Link href={props.global.github} passHref={true} shallow={true}>
             <a target="_blank">
               <div className="contact-item">
                 <h2>
-                  <span>Mail</span>
-                  <span>Mail</span>
+                  <span>Github</span>
+                  <span>Github</span>
                 </h2>
                 <span className="arrow">↗</span>
               </div>
