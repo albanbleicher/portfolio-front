@@ -145,9 +145,8 @@
       padding: 40px;
       flex-direction: column;
     }
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 700px) {
       padding: 40px 0px;
-      flex-direction: column;
     }
 
     box-sizing: border-box;
