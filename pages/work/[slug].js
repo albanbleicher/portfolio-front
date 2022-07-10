@@ -15,6 +15,7 @@ export default function SingleWork(props) {
       types: "lines",
       splitClass: "inner-title",
     });
+    /** Need to refactor with gsap.timeline() */
     gsap
       .from(".inner-title", {
         y: 100,
@@ -55,6 +56,15 @@ export default function SingleWork(props) {
 
       ease: "easeInOut",
     });
+    if (props.video) {
+      gsap.from(".work-video", {
+        opacity: 0,
+        duration: 1.4,
+        delay: props.loading ? 4.5 : 2.5,
+
+        ease: "easeInOut",
+      });
+    }
   }, []);
   return (
     <React.Fragment>
